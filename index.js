@@ -24,13 +24,12 @@ module.exports = stampit()
       }
       res.json({
         success: false,
-        errorResponse: "There was an error while authenticating",
         errors: errors
       })
     },
     requiresToken: function() {
       return function(req, res, next) {
-        var token = req.body.token || req.query.token || req.headers['x-access-token'] || (req.headers['authorization']||"").substr(7)
+        var token = req.body.token || req.query.token || req.headers['x-access-token'] || (req.headers.authorization||"").substr(7)
         if (token) {
           jwt.verify(token, instance.secret, function(error, payload) {
             if (error) {
@@ -80,7 +79,7 @@ module.exports = stampit()
               }
             })
           } else {
-            instance.sendError(res,[
+            instance.sendError(res, [
               "You must send the JSON fields \"username\" and \"password\""
             ])
           }
