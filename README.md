@@ -1,2 +1,2 @@
 # express-jwt-authenticate
-Simple express user authentication middleware
+Simple express [json web token](http://jwt.io/) authentication middleware
