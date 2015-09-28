@@ -1,6 +1,5 @@
-var passwordHash = require('password-hash')
-var jwt          = require('jsonwebtoken')
-var stampit      = require('stampit')
+var jwt     = require('jsonwebtoken')
+var stampit = require('stampit')
 
 module.exports = stampit()
   .refs({

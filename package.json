@@ -25,12 +25,11 @@
   "homepage": "https://github.com/danielrw7/user-auth#readme",
   "dependencies": {
     "jsonwebtoken": "^5.0.5",
-    "lodash": "^3.10.1",
-    "password-hash": "^1.2.2",
     "stampit": "^2.1.1"
   },
   "devDependencies": {
     "jshint": "^2.8.0",
-    "tape": "^4.2.0"
+    "tape": "^4.2.0",
+    "lodash": "^3.10.1"
   }
 }
