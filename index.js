@@ -75,7 +75,7 @@ module.exports = stampit()
                 res.json({
                   success: true,
                   token: token
-                })
+                }
               }
             })
           } else {
