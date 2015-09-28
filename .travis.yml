@@ -9,4 +9,4 @@ node_js:
   - "0.6"
   - "iojs"
 before_install:
-  - npm i
+  - npm install
