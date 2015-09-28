@@ -1,0 +1,34 @@
+{
+  "name": "express-jwt-authenticate",
+  "version": "0.0.1",
+  "description": "Simple express user authentication middleware",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielrw7/express-jwt-authenticate.git"
+  },
+  "keywords": [
+    "express",
+    "router",
+    "authenticate",
+    "auth",
+    "user"
+  ],
+  "author": "Daniel Wilson <danielrw7@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/danielrw7/user-auth/issues"
+  },
+  "homepage": "https://github.com/danielrw7/user-auth#readme",
+  "dependencies": {
+    "jsonwebtoken": "^5.0.5",
+    "password-hash": "^1.2.2",
+    "stampit": "^2.1.1"
+  },
+  "devDependencies": {
+    "tape": "^4.2.0"
+  }
+}
