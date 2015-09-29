@@ -27,16 +27,16 @@ module.exports = stampit()
           return null
         }
       }
-    }
-  })
-  .methods({
+    },
     verifyPassword: function(pass1, pass2) {
       return pass1 === pass2
     },
+  })
+  .methods({
     verifyToken: function(token, callback) {
       jwt.verify(token, this.secret, callback)
     },
-    sendError: function(res, errors) {
+    sendError: function(res, errors, status) {
       if (errors) {
         if (!(typeof errors === 'object' && errors.length)) {
           errors = [errors]
@@ -44,10 +44,17 @@ module.exports = stampit()
       } else {
         errors = []
       }
-      res.json({
-        success: false,
-        errors: errors
-      })
+      if (status) {
+        res.status(status).json({
+          success: false,
+          errors: errors
+        })
+      } else {
+        res.json({
+          success: false,
+          errors: errors
+        })
+      }
     },
     requiresToken: function() {
       return function(req, res, next) {
@@ -114,6 +121,7 @@ module.exports = stampit()
     }
   }).
   init(function() {
+    var instance = this
     if (this.router && this.authenticatePaths.length) {
       for(var i in this.authenticatePaths) {
         this.router.post(this.authenticatePaths[i], this.authenticateRoute())
@@ -121,6 +129,10 @@ module.exports = stampit()
     }
     if (this.router && this.jwtOptions) {
       this.jwtOptions.secret = this.secret
-      this.router.use(expressJwt(this.jwtOptions))
+      this.router.use(expressJwt(this.jwtOptions)).use(function(err, req, res, next) {
+        if (err.name === 'UnauthorizedError') {
+          instance.sendError(res, "Invalid token", 401)
+        }
+      })
     }
   })
