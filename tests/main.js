@@ -105,7 +105,7 @@ test('Authenticate route with valid body', function(t) {
 
   var jwtAuth = require('../')({
     userModel: model,
-    tokenSecret: "super-secret"
+    secret: "super-secret"
   })
   jwtAuth.authenticateRoute()(req, res)
 })
@@ -128,7 +128,7 @@ test('Authenticate route with invalid body', function(t) {
 
   var jwtAuth = require('../')({
     userModel: model,
-    tokenSecret: "super-secret"
+    secret: "super-secret"
   })
   jwtAuth.authenticateRoute()(req, res)
 })

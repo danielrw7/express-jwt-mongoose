@@ -1,5 +1,5 @@
 {
-  "name": "express-jwt-authenticate",
+  "name": "express-jwt-mongoose",
   "version": "0.0.1",
   "description": "Simple express user authentication middleware",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/danielrw7/express-jwt-authenticate.git"
+    "url": "git+https://github.com/danielrw7/express-jwt-mongoose.git"
   },
   "keywords": [
     "express",
@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/danielrw7/user-auth#readme",
   "dependencies": {
+    "express-jwt": "^3.1.0",
     "jsonwebtoken": "^5.0.5",
     "stampit": "^2.1.1"
   },
