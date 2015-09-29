@@ -2,7 +2,7 @@
 
 [![Travis CI status](https://travis-ci.org/danielrw7/express-jwt-mongoose.svg)](https://travis-ci.org/danielrw7/express-jwt-mongoose) [![npm version](https://badge.fury.io/js/express-jwt-mongoose.svg)](https://www.npmjs.com/package/express-jwt-mongoose)
 
-Simple express [json web token](http://jwt.io/) authentication
+Simple express [json web token](http://jwt.io/) user authentication
 
 ## Install
 `npm install --save express-jwt-mongoose`
@@ -44,5 +44,59 @@ app.use('/', router)
 app.listen(3001, function() {
   console.log("Listening!")
 })
+```
 
+## Options
+#### userModel
+Your mongoose user model
+
+------------
+#### secret
+The token secret
+
+------------
+#### usernameField
+`username` default
+
+The field you store the username in in the `userModel`
+
+------------
+#### passwordField
+`password` default
+
+The field you store the password in in the `userModel`
+
+------------
+#### tokenDuration
+`1440` default (24 hours)
+
+The length of time generated tokens will be active, in minutes
+
+------------
+#### tokenPayloadFields
+`["_id", "username"]` default
+
+Fields that will be stored in the token payload
+
+------------
+#### authenticatePaths
+`["/authenticate", "/auth"]` default
+
+Url paths where users can authenticate with the fields `username` and `password` (or whichever you set in `usernameField` and `passwordField`, respectively)
+
+------------
+#### verifyPassword
+```
+function(pass1, pass2) {
+  return pass1 === pass2
+}
+```
+
+A method which is used to compare two passwords. **Changing this to verify hashed passwords is highly recommended for your application's security.**
+
+**Example using [`password-hash`](https://github.com/davidwood/node-password-hash)**
+```
+function(password, hashedPassword) {
+  return require('password-hash').verify(password, hashedPassword)
+}
 ```
