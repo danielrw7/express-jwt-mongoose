@@ -83,8 +83,8 @@ module.exports = stampit()
       var instance = this
       return function(req, res) {
         if (req.body) {
-          var username = req.body.username || "",
-              password = req.body.password || ""
+          var username = req.body[instance.usernameField] || "",
+              password = req.body[instance.passwordField] || ""
           if (username.length && password.length) {
             var query = {}
             query[instance.usernameField] = username
