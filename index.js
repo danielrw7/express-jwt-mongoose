@@ -1,7 +1,6 @@
 var jwt        = require('jsonwebtoken')
 var expressJwt = require('express-jwt')
 var stampit    = require('stampit')
-var _          = require('lodash')
 
 module.exports = stampit()
   .refs({
