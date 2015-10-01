@@ -1,7 +1,7 @@
 {
   "name": "express-jwt-mongoose",
   "version": "0.1.2",
-  "description": "Simple express user authentication middleware",
+  "description": "Simple express jwt user authentication",
   "main": "index.js",
   "scripts": {
     "test": "node tests/*.js && node_modules/jshint/bin/jshint ."
