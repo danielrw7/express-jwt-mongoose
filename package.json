@@ -1,6 +1,6 @@
 {
   "name": "express-jwt-mongoose",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Simple express jwt user authentication",
   "main": "index.js",
   "scripts": {
